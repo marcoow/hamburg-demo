@@ -7,14 +7,10 @@ use uuid::Uuid;
 #[axum::debug_handler]
 pub async fn create(
     State(app_state): State<SharedAppState>,
-    Json(task): Json<() /* e.g.entities::tasks::TaskChangeset */>,
-) -> Result<() /* e.g. (StatusCode, Json<entities::tasks::Task>) */, Error> {
-    todo!("create resource via hamburg_demo_db's APIs, trace, and respond!")
-
-    /* Example:
+    Json(task): Json<entities::tasks::TaskChangeset>,
+) -> Result<(StatusCode, Json<entities::tasks::Task>), Error> {
     let task = entities::tasks::create(task, &app_state.db_pool).await?;
     Ok((StatusCode::CREATED, Json(task)))
-    */
 }
 
 #[axum::debug_handler]

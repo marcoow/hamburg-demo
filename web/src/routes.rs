@@ -1,6 +1,9 @@
 use crate::controllers::tasks;
 use crate::state::AppState;
-use axum::{routing::get, Router};
+use axum::{
+    routing::{get, post},
+    Router,
+};
 
 use std::sync::Arc;
 
@@ -11,5 +14,6 @@ pub fn init_routes(app_state: AppState) -> Router {
     let shared_app_state = Arc::new(app_state);
     Router::new()
         .route("/tasks", get(tasks::read_all))
+        .route("/tasks", post(tasks::create))
         .with_state(shared_app_state)
 }

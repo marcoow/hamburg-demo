@@ -12,10 +12,8 @@ use serde_json::json;
 use std::collections::HashMap;
 use uuid::Uuid;
 
+#[db_test]
 async fn test_create_invalid(context: &DbTestContext) {
-    todo!("send invalid changeset, assert 422 response!");
-
-    /* Example:
     let payload = json!(entities::tasks::TaskChangeset {
         description: String::from("")
     });
@@ -30,13 +28,10 @@ async fn test_create_invalid(context: &DbTestContext) {
         .await;
 
     assert_that!(response.status(), eq(StatusCode::UNPROCESSABLE_ENTITY));
-    */
 }
 
+#[db_test]
 async fn test_create_success(context: &DbTestContext) {
-    todo!("send valid changeset, assert 201 response!");
-
-    /* Example:
     let changeset: entities::tasks::TaskChangeset = Faker.fake();
     let payload = json!(changeset);
 
@@ -57,7 +52,6 @@ async fn test_create_success(context: &DbTestContext) {
         tasks.first().unwrap().description,
         eq(&changeset.description)
     );
-    */
 }
 
 #[db_test]
